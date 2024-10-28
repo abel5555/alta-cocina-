@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Alta Cocina</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Alta Cocina</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Reservar Mesa</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Feedback</a></li>
+                <li><a href="#">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de nuestros platos -->
+    <div class="content">
+        <h2>Nuestros Platos</h2>
+        <!-- Carrusel -->
+        <div class="carousel">
+          <div class="slides">
+              <div class="slide"><img src="./imagnes/lomito gurmet.jpg" alt=" nuesto lomo cuenta con Pan de manteca y queso, lactonesa de cítricos, rodajas de filet, lechuga, tomate, huevo, morrón ahumado y queso en hebras."></div>
+              <div class="slide"><img src="./imagnes/hamburegesa.jpg" alt="nuesto hamburegesa cuenta con Pan de manteca, medallón de 150 gr de carne picada, lactonesa de cítricos, jamón, lechuga, tomate, huevo y queso."></div>
+              <div class="slide"><img src="./imagnes/piazza.jpg" alt="nuesto piazza cuenta con Salsa casera, queso mozzarella, morrón ahumado, jamón cocido, pesto y olivas."></div>
+          </div>
+          <div class="prev" onclick="moveSlide(-1)">&#10094;</div>
+          <div class="next" onclick="moveSlide(1)">&#10095;</div>
+      </div>
+
+    <!-- Formulario de contacto -->
+    <div class="contact-form">
+        <h3>Contáctanos</h3>
+        <form>
+            <input type="text" name="name" placeholder="Nombre" required>
+            <input type="email" name="email" placeholder="Correo Electrónico" required>
+            <textarea name="message" placeholder="Escribe tu mensaje" rows="4" required></textarea>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </div>
+
+    <!-- Scripts para el carrusel -->
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slide').length;
+            currentSlide = (index + totalSlides) % totalSlides;
+            slides.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
+        }
+
+        function moveSlide(step) {
+            showSlide(currentSlide + step);
+        }
+    </script>
+</body>
+</html>
